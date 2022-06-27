@@ -1,0 +1,27 @@
+@use "../../utils/styleVars";
+
+.avatar-container {
+    display: flex;
+    align-items: center;
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        font-size: 2rem;
+    }
+    & > * {
+        width: 3rem;
+    }
+}
+
+.hamburger-menu {
+    .hamburger-menu-el {
+        & > * {
+            text-decoration: none;
+            color: $website-text;
+            &:hover {
+                color: $side-menu-link-hover;
+                transition: 200ms ease-in-out;
+            }
+        }
+    }
+}

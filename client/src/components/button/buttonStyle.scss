@@ -1,0 +1,23 @@
+@use "../../utils/styleVars";
+
+.btn-container {
+    padding: 0.8rem 2.8rem;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    background-color: $btn;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 9px 28px, rgba(0, 0, 0, 0.22) 0px 2px 5px;
+    color: #fff;
+    width: max-content;
+    // @include responsive(mobile) {
+    //     padding: 0.6rem 2.4rem;
+    // }
+    cursor: pointer;
+    &:active {
+        transition: box-shadow 100ms ease-in-out;
+        transform: scale(0.95);
+        transition: transform 100ms ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 21px,
+            rgba(0, 0, 0, 0.22) 0px 1px 3px;
+    }
+}

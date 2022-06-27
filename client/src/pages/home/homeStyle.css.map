@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACjB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,WAAW,EAAE,qBAAqB;CAQrC;;AAXD,AAKI,oBALgB,CAKhB,kBAAkB,CAAC;EACf,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,MAAM;EACnB,OAAO,EAAE,IAAI;CAChB",
+    "sources": [
+        "homeStyle.scss"
+    ],
+    "names": [],
+    "file": "homeStyle.css"
+}

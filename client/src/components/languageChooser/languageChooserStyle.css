@@ -1,0 +1,11 @@
+.languages-drop-down {
+  cursor: pointer;
+  font-size: 1.6rem;
+  height: 15vh;
+  overflow-y: scroll;
+}
+
+.language-chooser {
+  font-size: 1.6rem;
+}
+/*# sourceMappingURL=languageChooserStyle.css.map */
