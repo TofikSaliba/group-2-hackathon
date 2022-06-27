@@ -1,5 +1,4 @@
 import express from "express";
-import { auth } from "../middleware/auth.js";
 
 import {
   addUser,
@@ -15,12 +14,12 @@ const usersRouter = express.Router();
 
 usersRouter.post("/signUp", addUser);
 usersRouter.post("/login", loginUser);
-usersRouter.post("/logout", auth, logoutUser);
-usersRouter.post("/logoutAll", auth, logoutAll);
+usersRouter.post("/logout", logoutUser);
+usersRouter.post("/logoutAll", logoutAll);
 
-usersRouter.get("/profile", auth, getUserProfile);
-usersRouter.patch("/editProfile", auth, editProfile);
+usersRouter.get("/profile", getUserProfile);
+usersRouter.patch("/editProfile", editProfile);
 
-usersRouter.delete("/deleteUser", auth, deleteUser);
+usersRouter.delete("/deleteUser", deleteUser);
 
 export { usersRouter };
