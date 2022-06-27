@@ -8,14 +8,14 @@ const ProfileAvatar = () => {
     const handleOnOpen = () => {};
 
     return (
-        // <div className="avatar-container">
-        <Menu
-            className="hamburger-menu"
-            styles={styles}
-            right
-            customBurgerIcon={<img src={imageData.avatar} alt="avatar" />}
-        ></Menu>
-        // </div>
+        <div className="avatar-container">
+            <Menu
+                className="hamburger-menu"
+                styles={styles}
+                right
+                customBurgerIcon={<img src={imageData.avatar} alt="avatar" />}
+            ></Menu>
+        </div>
     );
 };
 
