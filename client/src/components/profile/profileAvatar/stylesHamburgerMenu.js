@@ -3,14 +3,6 @@ export const styles = {
         position: "relative",
         width: "36px",
         height: "36px",
-        // right: "36px",
-        // top: "36px",
-    },
-    // bmBurgerBars: {
-    //     backgroundImage: "#373a47",
-    // },
-    bmBurgerBarsHover: {
-        background: "#a90000",
     },
     bmCrossButton: {
         height: "24px",
@@ -19,12 +11,8 @@ export const styles = {
     bmCross: {
         background: "#bdc3c7",
     },
-    // bmMenuWrap: {
-    //     position: "flex",
-    //     height: "100%",
-    // },
     bmMenu: {
-        background: "#bdc3c7",
+        background: "rgba(241, 241, 241, 0.72)",
         padding: "2.5em 1.5em 0",
         fontSize: "1.15em",
     },
@@ -34,6 +22,10 @@ export const styles = {
     bmItemList: {
         color: "#b8b7ad",
         padding: "0.8em",
+        display: "flex",
+        flexDirection: "column",
+        gap: "2rem",
+        alignItems: "center",
     },
     bmItem: {
         display: "inline-block",

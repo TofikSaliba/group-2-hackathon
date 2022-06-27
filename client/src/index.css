@@ -16,3 +16,9 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
+
+@font-face {
+    font-family: "wonderland";
+    src: local("wonderland"),
+        url("./assets/fonts/wonderland.ttf") format("truetype");
+}

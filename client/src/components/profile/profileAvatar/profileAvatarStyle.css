@@ -21,4 +21,15 @@
 .avatar-container > * {
   width: 3rem;
 }
+
+.hamburger-menu .hamburger-menu-el > * {
+  text-decoration: none;
+  color: #333;
+}
+
+.hamburger-menu .hamburger-menu-el > *:hover {
+  color: #a7c287;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
 /*# sourceMappingURL=profileAvatarStyle.css.map */

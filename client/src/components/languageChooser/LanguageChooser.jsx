@@ -9,13 +9,14 @@ const LanguageChooser = () => {
 
     const onLanguageChange = () => {};
 
-    // return <div className="language-chooser">Choose different Language</div>;
     return (
         <Dropdown
             options={options}
             onChange={onLanguageChange}
             value={defaultOption}
             placeholder="Select an option"
+            className="language-chooser"
+            menuClassName="languages-drop-down"
         />
     );
 };

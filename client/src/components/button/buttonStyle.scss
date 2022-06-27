@@ -1,10 +1,11 @@
+@use "../../utils/styleVars";
+
 .btn-container {
     padding: 0.8rem 2.8rem;
     font-size: 2rem;
-    // font-family: "FuturaPT";
     letter-spacing: 2px;
     border-radius: 8px;
-    background-color: #e66d3993;
+    background-color: $btn;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 9px 28px, rgba(0, 0, 0, 0.22) 0px 2px 5px;
     color: #fff;
     width: max-content;
