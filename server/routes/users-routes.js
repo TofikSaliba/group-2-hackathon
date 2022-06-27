@@ -16,10 +16,8 @@ usersRouter.post("/signUp", addUser);
 usersRouter.post("/login", loginUser);
 usersRouter.post("/logout", logoutUser);
 usersRouter.post("/logoutAll", logoutAll);
-
 usersRouter.get("/profile", getUserProfile);
 usersRouter.patch("/editProfile", editProfile);
-
 usersRouter.delete("/deleteUser", deleteUser);
 
 export { usersRouter };
