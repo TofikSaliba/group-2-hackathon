@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EACd,MAAM,EAAE,OAAO;EACf,SAAS,EAAE,MAAM;CACpB",
+    "sources": [
+        "languageChooserStyle.scss"
+    ],
+    "names": [],
+    "file": "languageChooserStyle.css"
+}

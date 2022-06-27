@@ -1,0 +1,17 @@
+.avatar-container {
+    display: flex;
+    align-items: center;
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        font-size: 2rem;
+    }
+    & > * {
+        width: 3rem;
+    }
+}
+
+#react-burger-menu-btn {
+    // width: max-content !important;
+    // height: max-content !important;
+}
