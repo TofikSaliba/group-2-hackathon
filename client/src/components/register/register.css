@@ -1,0 +1,52 @@
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  padding: 3rem;
+}
+
+.registerForm h1 {
+  font-size: clamp(4rem, 4vw, 8rem);
+  margin-bottom: 2rem;
+}
+
+.registerForm button {
+  border: none;
+  border-radius: 5px;
+  background: seagreen;
+  color: #fff;
+  font-size: 2.6rem;
+}
+
+.error {
+  color: red;
+  height: 1.5rem;
+}
+
+.registerForm button:hover {
+  background: rgb(59, 180, 112);
+}
+
+.inputAndLabel {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.6rem;
+  gap: 0.3rem;
+}
+
+.inputAndLabel input {
+  padding: 0.3rem 1rem;
+  font-size: 2.6rem;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #111;
+}
+
+@media (max-width: 450px) {
+  .registerForm {
+    gap: 1rem;
+    padding: 1rem;
+  }
+}

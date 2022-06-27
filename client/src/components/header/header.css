@@ -1,0 +1,44 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: seagreen;
+  font-size: 2.6rem;
+  border-radius: 10px;
+  max-width: 1400px;
+  margin: 0.2rem;
+  opacity: 0.9;
+}
+
+.navLeft,
+.navRight {
+  display: flex;
+}
+
+.navLeft a,
+.navRight a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+.navLeft a:hover,
+.navRight a:hover {
+  background: rgb(59, 180, 112);
+}
+
+@media (max-width: 450px) {
+  .navBar {
+    flex-direction: column;
+    height: fit-content;
+  }
+  .navLeft,
+  .navRight {
+    flex-direction: column;
+    align-items: center;
+  }
+}

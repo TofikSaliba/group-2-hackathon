@@ -1,0 +1,44 @@
+.accountCard {
+  background: rgb(37, 211, 113);
+  border-radius: 10px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  font-size: clamp(1.3rem, 2vw, 2.5rem);
+  position: relative;
+}
+
+.accountCard .label {
+  font-weight: bold;
+}
+
+.accountCard .detail {
+  display: flex;
+  width: 100%;
+  padding: 0 1rem;
+  justify-content: center;
+  color: rgb(68, 50, 17);
+}
+
+.accountCardChildren {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.accountCardChildren button {
+  border-radius: 5px;
+  border: 1px solid #111;
+  color: rgb(68, 50, 17);
+  font-size: clamp(1.3rem, 2vw, 2.5rem);
+}
+
+@media (max-width: 380px) {
+  .accountCard {
+    padding: 0.4rem;
+  }
+}
