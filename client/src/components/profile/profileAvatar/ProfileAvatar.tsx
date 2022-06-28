@@ -1,6 +1,6 @@
 import React from "react";
 import { imageData } from "../../../imagesData/imagesData";
-import { slide as Menu } from "react-burger-menu";
+import  {  slide as Menu} from "react-burger-menu";
 import { styles } from "./stylesHamburgerMenu";
 import { NavLink } from "react-router-dom";
 import "./profileAvatarStyle.css";
