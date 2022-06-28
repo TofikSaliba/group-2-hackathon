@@ -29,7 +29,9 @@ async function scrapData() {
       }
     );
     let storiesIds = [];
+    let storiesLimit = 0;
     for (const story of storiesArr) {
+      storiesLimit++;
       await page.goto(story.storyLink);
       const contentParagraphs = await page.$$eval(".entry p", (parags) => {
         return parags.map((paraTag) => {
@@ -52,6 +54,7 @@ async function scrapData() {
         console.log(err.message);
       }
 
+      if (storiesLimit > 9) break;
       if (i % 50 === 0) {
         browser.close();
         browser = await puppeteer.launch({ headless: false });
@@ -70,7 +73,6 @@ async function scrapData() {
       console.log(err.message);
     }
   }
-  // console.log(categories);
 
   browser.close();
 }
