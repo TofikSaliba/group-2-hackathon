@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { User } from "../../models/user/user.model";
+import { User } from "../../models/user/user.model.js";
 
 export const auth = async (req, res, next) => {
   try {
@@ -9,13 +9,11 @@ export const auth = async (req, res, next) => {
       _id: decoded._id,
       "tokens.token": token,
     });
-
     if (!user) throw new Error();
-
     req.token = token;
     req.user = user;
     next();
   } catch (error) {
-    res.status.send("Error Please Authenticate");
+    res.status(401).send("Error Please Authenticate");
   }
 };

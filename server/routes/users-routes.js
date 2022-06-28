@@ -1,24 +1,24 @@
 import express from "express";
 
 import {
-  addUser,
-  // loginUser,
-  // logoutUser,
-  // logoutAll,
+  signUpUser,
+  logoutUser,
   deleteUser,
   getUserProfile,
   editProfile,
+  loginUser,
 } from "../controllers/user.controllers.js";
+import { auth } from "../middleware/auth/auth.js";
 
 const usersRouter = express.Router();
 
-usersRouter.post("/signUp", addUser);
-// usersRouter.post("/login", loginUser);
-// usersRouter.post("/logout", logoutUser);
-// usersRouter.post("/logoutAll", logoutAll);
+usersRouter.post("/signUp", signUpUser);
+usersRouter.post("/login", loginUser);
+usersRouter.post("/logout", auth, logoutUser);
+// usersRouter.post("/logoutAll", logoutAll); // Not sure if we need this function
 
-usersRouter.get("/profile", getUserProfile);
-usersRouter.patch("/editProfile", editProfile);
-usersRouter.delete("/deleteUser", deleteUser);
+usersRouter.get("/profile", auth, getUserProfile);
+usersRouter.patch("/editProfile", auth, editProfile);
+usersRouter.delete("/deleteUser", auth, deleteUser);
 
 export { usersRouter };
