@@ -22,6 +22,29 @@ const storySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  comments: [
+    {
+      author_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+      },
+      authorName: {
+        type: String,
+        required: true,
+        minLength: 2,
+      },
+      commentText: {
+        type: String,
+        required: true,
+        minLength: 4,
+      },
+      timeStamp: {
+        type: Date,
+        required: true,
+        default: Date.now,
+      },
+    },
+  ],
 });
 
 export { storySchema };
