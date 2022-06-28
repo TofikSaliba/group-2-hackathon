@@ -13,7 +13,7 @@ i18next.init({
     interpolation: { escapeValue: false }, // React already does escaping
 });
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")  as HTMLElement);
 root.render(
     // <React.StrictMode>
     <I18nextProvider i18n={i18next}>
