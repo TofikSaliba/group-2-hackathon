@@ -58,16 +58,21 @@ export const getUserProfile = async (req, res) => {
 };
 
 export const editProfile = async (req, res) => {
-  // Keter I will leave you this function
+  const updates = Object.keys(req.body);
+  const allowedUpdates = ["name", "email", "password"];
+  const isValidOperation = updates.every((update) =>
+    allowedUpdates.includes(update)
+  );
+
+  if (!isValidOperation) {
+    return res.status(400).send({ error: "Invalid updates!" });
+  }
+
   try {
-    const _id = req.body._id;
-    const fieldsToUpdate = req.body.fieldsToUpdate;
-    const userUpdated = await User.findByIdAndUpdate(_id, fieldsToUpdate, {
-      new: true,
-    });
-    res.status(200);
-    res.send(userUpdated);
-  } catch {
-    res.status(401);
+    updates.forEach((update) => (req.user[update] = req.body[update]));
+    await req.user.save();
+    res.send(req.user);
+  } catch (e) {
+    res.status(400).send(e);
   }
 };
