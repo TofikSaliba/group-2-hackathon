@@ -1,0 +1,31 @@
+export type BookId = string;
+
+export interface Book {
+    id: BookId;
+    title: string;
+    content: Page[];
+    region: string;
+    comments?: Comment[];
+}
+
+export type Page = string;
+
+export type UserId = string;
+
+export type GetBook = () => Book;
+
+export interface User {
+    id: UserId;
+    name: string;
+    email: string;
+    favoriteBooks: BookId[];
+}
+
+export type CommentId = string;
+
+export interface Comment {
+    id: CommentId;
+    owner: UserId;
+    date: Date;
+    content: string;
+}

@@ -2,12 +2,16 @@ import React from "react";
 import "./buttonStyle.css";
 
 interface ButtonProps {
-   
     btnText: string;
+    onBtnClicked: () => void;
 }
 
-const Button = ({ btnText}:ButtonProps) => {
-    return <div className="btn-container">{btnText}</div>;
+const Button = ({ btnText, onBtnClicked }: ButtonProps) => {
+    return (
+        <div className="btn-container" onClick={onBtnClicked}>
+            {btnText}
+        </div>
+    );
 };
 
 export default Button;
