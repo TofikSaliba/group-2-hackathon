@@ -25,7 +25,6 @@ const LanguageChooser = () => {
     const defaultOption = "Choose different Language";
 
     const onLanguageChange = (selectedLang: Option) => {
-        console.log(selectedLang);
         setChosenLanguage(selectedLang.value);
     };
 

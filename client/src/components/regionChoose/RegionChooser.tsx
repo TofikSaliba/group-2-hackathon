@@ -14,7 +14,6 @@ const RegionChooser = () => {
         }));
 
     const onRegionChange = (selectedRegion: Option) => {
-        console.log(JSON.parse(selectedRegion.value));
         setSelectedRegion(JSON.parse(selectedRegion.value));
     };
 

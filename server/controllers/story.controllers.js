@@ -2,7 +2,8 @@ import { languageCollections } from "../models/languages/language.models.js";
 import { Story } from "../models/story/story.model.js";
 
 export const getStoryById = async (req, res) => {
-    const { storyId, language } = req.body;
+    const { storyId, language } = req.query;
+    console.log(req.query.storyId);
     try {
         const isStoryTranslated = await languageCollections[language].findById(
             storyId
@@ -13,6 +14,7 @@ export const getStoryById = async (req, res) => {
         );
         if (!isStoryTranslated) {
             const story = await Story.findById(storyId);
+            console.log(story);
             if (!story) throw new Error();
             return res.status(200).send(story);
         }
