@@ -1,12 +1,21 @@
+@import "../../utils/mixins/mixin.scss";
+
 .navbar-container {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
     align-items: center;
+    @include responsive(mini-tablet) {
+        flex-direction: column;
+        gap: 2rem;
+    }
     .right-navbar-container {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 3rem;
+        @include responsive(mini-tablet) {
+            gap: 2rem;
+        }
     }
 }

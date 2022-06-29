@@ -28,17 +28,21 @@ i18next.init({
 interface LanguageProviderProps {
     children: ReactNode;
 }
+export interface Language {
+    label: string;
+    value: string;
+}
 
 interface LanguageContextValue {
-    chosenLanguage: string;
-    setChosenLanguage: (language: string) => void;
+    chosenLanguage: Language;
+    setChosenLanguage: (language: Language) => void;
     t: any;
     i18n: any;
 }
 
 const emptyLanguageContextValue: LanguageContextValue = {
-    chosenLanguage: "en",
-    setChosenLanguage: function (language: string): void {},
+    chosenLanguage: { label: "English", value: "en" },
+    setChosenLanguage: function (language: Language): void {},
     t: function () {},
     i18n: undefined,
 };
@@ -50,11 +54,13 @@ const LanguageContext = React.createContext<LanguageContextValue>(
 export const useLanguage = () => useContext(LanguageContext);
 
 const LanguageProvider = ({ children }: LanguageProviderProps) => {
-    const [chosenLanguage, setChosenLanguage] = useState("en");
+    const [chosenLanguage, setChosenLanguage] = useState(
+        emptyLanguageContextValue.chosenLanguage
+    );
     const { t, i18n } = useTranslation("common");
 
     useEffect(() => {
-        i18n.changeLanguage(chosenLanguage);
+        i18n.changeLanguage(chosenLanguage.value);
     }, [chosenLanguage]);
 
     const value: LanguageContextValue = {

@@ -31,9 +31,12 @@
         .page-text {
             height: 100%;
             flex-grow: 1;
-            font-size: 80%;
+            font-size: 85%;
             text-align: justify;
+            line-height: 2.5rem;
+            padding: 0 2rem 1rem 2rem;
             margin-top: 10px;
+            white-space: pre-wrap;
             padding-top: 10px;
             box-sizing: border-box;
             border-top: solid 1px hsl(35, 55, 90);

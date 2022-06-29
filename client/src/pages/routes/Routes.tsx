@@ -9,44 +9,47 @@ import Login from "../login/login";
 import userApi from "../../apis/userApi";
 import { useUser } from "../../context/User.context";
 import About from "../about/About";
+import SavedStories from "../savedStories/SavedStories";
 
 const Routes = () => {
-  const { setCurrentUser, setToken } = useUser();
+    const { setCurrentUser, setToken } = useUser();
 
-  useEffect(() => {
-    const fetchedToken = localStorage.getItem("Token");
-      if (fetchedToken) {
-        const getUser = async () => {
-          try {
-            const options = {
-              headers: { Authorization: fetchedToken },
+    useEffect(() => {
+        const fetchedToken = localStorage.getItem("Token");
+        if (fetchedToken) {
+            const getUser = async () => {
+                try {
+                    const options = {
+                        headers: { Authorization: fetchedToken },
+                    };
+                    const { data } = await userApi(options).get(
+                        "/users/profile"
+                    );
+                    setCurrentUser(data);
+                    setToken(fetchedToken);
+                } catch (err: any) {
+                    console.log(err.message);
+                }
             };
-            const { data } = await userApi(options).get("/users/profile");      
-            setCurrentUser(data);
-            setToken(fetchedToken);
-          } catch (err: any) {
-            console.log(err.message);
-          }
-        };
-        getUser();
-      }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+            getUser();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-  return (
-    <>
-      <div className="bg-container"></div>
-      <Navbar></Navbar>
-      <Switch>
-        <Route exact component={Home} path="/"></Route>
-        <Route exact component={Register} path="/register"></Route>
-        <Route exact component={Contact} path="/contact" />
-        <Route exact component={Login} path="/login" />
-        <Route exact component={About} path="/about" />
-
-      </Switch>
-    </>
-  );
+    return (
+        <>
+            <div className="bg-container"></div>
+            <Navbar></Navbar>
+            <Switch>
+                <Route exact component={Home} path="/"></Route>
+                <Route exact component={Register} path="/register"></Route>
+                <Route exact component={Contact} path="/contact" />
+                <Route exact component={Login} path="/login" />
+                <Route exact component={About} path="/about" />
+                <Route exact component={SavedStories} path="/saved-stories" />
+            </Switch>
+        </>
+    );
 };
 
 export default Routes;
