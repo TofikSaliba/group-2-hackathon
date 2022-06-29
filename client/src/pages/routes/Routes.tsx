@@ -8,8 +8,8 @@ import Register from "../register/register";
 import Login from "../login/login";
 import userApi from "../../apis/userApi";
 import { useUser } from "../../context/User.context";
-import About from "../about/About";
 import SavedStories from "../savedStories/SavedStories";
+import About from "../about/About";
 
 const Routes = () => {
     const { setCurrentUser, setToken } = useUser();
