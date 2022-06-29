@@ -58,6 +58,7 @@ export const getUserProfile = async (req, res) => {
 };
 
 export const editProfile = async (req, res) => {
+  //please check
   const updates = Object.keys(req.body);
   const allowedUpdates = [
     "name",
