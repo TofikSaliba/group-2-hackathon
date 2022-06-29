@@ -48,7 +48,7 @@ function Register(): JSX.Element {
     } catch (err: any) {
       console.log(err);
       if (err.response.data.indexOf("E11000 duplicate key") !== -1) {
-        setError("Email adress is already in use!");
+        setError("Email address is already in use!");
       }
     }
   };
