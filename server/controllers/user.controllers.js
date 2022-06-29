@@ -59,7 +59,14 @@ export const getUserProfile = async (req, res) => {
 
 export const editProfile = async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ["name", "email", "password"];
+  const allowedUpdates = [
+    "name",
+    "email",
+    "password",
+    "savedLanguage",
+    "favorites",
+    "savedProgress",
+  ];
   const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
   );
