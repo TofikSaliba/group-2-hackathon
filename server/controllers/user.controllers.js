@@ -33,7 +33,6 @@ export const loginUser = async (req, res) => {
     const token = await user.generateAuthToken();
     res.status(200).send({ user, token });
   } catch (error) {
-    console.log(error);
     res.status(401).send(error);
   }
 };
@@ -61,7 +60,14 @@ export const getUserProfile = async (req, res) => {
 export const editProfile = async (req, res) => {
   //please check
   const updates = Object.keys(req.body);
-  const allowedUpdates = ["name", "email", "password"];
+  const allowedUpdates = [
+    "name",
+    "email",
+    "password",
+    "savedLanguage",
+    "favorites",
+    "savedProgress",
+  ];
   const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
   );
