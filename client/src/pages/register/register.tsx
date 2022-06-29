@@ -13,6 +13,7 @@ function Register(): JSX.Element {
     name: "",
     savedLanguage: "Choose Prefered Language",
   });
+  const [confirm, setConfirm] = useState<any>("");
   const [error, setError] = useState<any>("");
   const [redirect, setRedirect] = useState<any>(false);
 
@@ -33,6 +34,13 @@ function Register(): JSX.Element {
     if (form.savedLanguage === "Choose Prefered Language") {
       return setError("Must choose prefered language");
     }
+    if (confirm !== form.password) {
+      return setError("Passwords do not match!");
+    }
+    if (form.password.length < 6) {
+      return setError("Password length must be at least 6");
+    }
+
     try {
       const { data } = await userApi().post("/users/signUp", form);
       setCurrentUser(data.newUser);
@@ -43,12 +51,15 @@ function Register(): JSX.Element {
         name: "",
         savedLanguage: "Choose Prefered Language",
       });
+      localStorage.setItem("Token", data.token);
       setError("");
       history.push("/");
     } catch (err: any) {
       console.log(err);
       if (err.response.data.indexOf("E11000 duplicate key") !== -1) {
         setError("Email adress is already in use!");
+      } else {
+        setError(err.message);
       }
     }
   };
@@ -86,6 +97,20 @@ function Register(): JSX.Element {
             type="password"
             id="password"
             placeholder="Password"
+            required
+          />
+        </div>
+        <label htmlFor="confirmPassword" className="form__label">
+          Confirm Password
+        </label>
+        <div className="password">
+          <input
+            onChange={(e) => setConfirm(e.target.value)}
+            value={confirm}
+            className="form__input"
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
             required
           />
         </div>
