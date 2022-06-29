@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 function userApi(options = {}) {
   const { headers = {} } = options;
   const url =
