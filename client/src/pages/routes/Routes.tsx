@@ -8,6 +8,7 @@ import Register from "../register/register";
 import Login from "../login/login";
 import userApi from "../../apis/userApi";
 import { useUser } from "../../context/User.context";
+import About from "../about/About";
 
 const Routes = () => {
   const { setCurrentUser, setToken } = useUser();
@@ -41,6 +42,8 @@ const Routes = () => {
         <Route exact component={Register} path="/register"></Route>
         <Route exact component={Contact} path="/contact" />
         <Route exact component={Login} path="/login" />
+        <Route exact component={About} path="/about" />
+
       </Switch>
     </>
   );

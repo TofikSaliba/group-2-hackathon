@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { imageData } from "../../../imagesData/imagesData";
 import { slide as Menu } from "react-burger-menu";
 import { styles } from "./stylesHamburgerMenu";
@@ -9,6 +9,7 @@ import userApi from "../../../apis/userApi";
 
 const ProfileAvatar = () => {
   const { currentUser, token, setCurrentUser, setToken } = useUser();
+  const [open, setOpen] = useState(false);
 
   const logOut = async () => {
     try {
@@ -31,32 +32,53 @@ const ProfileAvatar = () => {
         className="hamburger-menu"
         styles={styles}
         right
+        onOpen={() => setOpen(true)}
+        onClose={() => setOpen(false)}
+        isOpen={open}
         customBurgerIcon={<img src={imageData.avatar} alt="avatar" />}
       >
         <li className="hamburger-menu-el">
-          <NavLink to="/">Home</NavLink>
+          <NavLink onClick={() => setOpen(false)} to="/">
+            Home
+          </NavLink>
         </li>
         <li className="hamburger-menu-el">
-          <NavLink to="/about">About</NavLink>
+          <NavLink onClick={() => setOpen(false)} to="/about">
+            About
+          </NavLink>
         </li>
         <li className="hamburger-menu-el">
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink onClick={() => setOpen(false)} to="/contact">
+            Contact
+          </NavLink>
         </li>
         <li className="hamburger-menu-el">
           {currentUser ? (
-            <NavLink to="/profile">Profile</NavLink>
+            <NavLink onClick={() => setOpen(false)} to="/profile">
+              Profile
+            </NavLink>
           ) : (
-            <NavLink to="/login">Login</NavLink>
+            <NavLink onClick={() => setOpen(false)} to="/login">
+              Login
+            </NavLink>
           )}
         </li>
 
         <li className="hamburger-menu-el">
           {currentUser ? (
-            <NavLink onClick={logOut} to="/">
+            <NavLink
+              onClick={() => {
+                setOpen(false);
+                logOut();
+              }}
+              to="/"
+            >
               Logout
             </NavLink>
           ) : (
-            <NavLink to="/register">Register</NavLink>
+            <NavLink onClick={() => setOpen(false)} to="/register">
+              Register
+            </NavLink>
           )}
         </li>
       </Menu>
