@@ -22,35 +22,43 @@ const Home = () => {
     const saveToProfile = () => {};
 
     const getRandomBook = async () => {
-        console.log(selectedRegion);
+        try {
+            const randomBookIdx = Math.floor(
+                Math.random() * selectedRegion.stories.length
+            );
+            const randomBookId = selectedRegion.stories[randomBookIdx];
 
-        const randomBookIdx = Math.floor(
-            Math.random() * selectedRegion.stories.length
-        );
-        const randomBookId = selectedRegion.stories[randomBookIdx];
-        console.log(randomBookId);
-
-        const { data } = await storyApi.get("/", {
-            params: {
-                storyId: randomBookId,
-                language: chosenLanguage,
-                languageCode: chosenLanguage,
-            },
-        });
-        // console.log(data);
-        setCurrBook(data);
+            const { data } = await storyApi.get("/", {
+                params: {
+                    storyId: randomBookId,
+                    languageCode: chosenLanguage.value,
+                    language: chosenLanguage.label,
+                },
+            });
+            console.log(data);
+            setCurrBook(data);
+        } catch (err) {
+            console.log(err);
+        }
     };
+
+    const renderBook = () => {};
 
     useEffect(() => {
         getRandomBook();
-    }, []);
+    }, [chosenLanguage, selectedRegion]);
 
     return (
         <>
-            <Spinner isSpinning={selectedRegion.stories.length === 0}></Spinner>
             <div className="home-page-container">
                 <div className="story-container">
-                    <StoryView></StoryView>
+                    {!currBook ? (
+                        <Spinner
+                            isSpinning={selectedRegion.stories.length === 0}
+                        ></Spinner>
+                    ) : (
+                        <StoryView book={currBook!}></StoryView>
+                    )}
                 </div>
                 <div className="buttons-container">
                     <Button
