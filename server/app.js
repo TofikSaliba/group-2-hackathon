@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 import { usersRouter } from "./routes/users-routes.js";
 import { scrapData } from "./scrapper/scrapper.js";
 import { regionRouter } from "./routes/region-routes.js";
+import { storyRouter } from "./routes/story.route.js";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(cors());
 
 app.use("/users", usersRouter);
 app.use("/regions", regionRouter);
+app.use("/stories", storyRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(publicPath, "index.html"));
