@@ -5,6 +5,7 @@ import Home from "../home/Home";
 import { Contact } from "../../components/contact/contact.js";
 import "./routesStyle.css";
 import Register from "../register/register";
+import About from "../about/About";
 
 const Routes = () => {
   return (
@@ -15,6 +16,8 @@ const Routes = () => {
         <Route exact component={Home} path="/"></Route>
         <Route exact component={Register} path="/register"></Route>
         <Route exact component={Contact} path="/contact" />
+        <Route exact component={About} path="/about" />
+
       </Switch>
     </>
   );
