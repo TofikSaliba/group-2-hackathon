@@ -1,11 +1,14 @@
 export type BookId = string;
 
-export interface Book {
-    id: BookId;
+export interface BookMetadata {
+    _id: BookId;
     title: string;
-    dividedPages: Page[];
     region: string;
     comments?: Comment[];
+}
+export interface Book {
+    dividedPages: Page[];
+    dataObj: BookMetadata;
 }
 
 export type Page = string;

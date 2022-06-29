@@ -15,6 +15,7 @@ const Home = () => {
     const { chosenLanguage } = useLanguage();
     const [currBook, setCurrBook] = useState<Book>();
     const { currentUser } = useUser();
+    const [isLoading, setIsLoading] = useState(true);
 
     const saveToProfile = () => {};
 
@@ -32,6 +33,7 @@ const Home = () => {
                     language: chosenLanguage.label,
                 },
             });
+            setIsLoading(false);
             console.log(data);
             setCurrBook(data);
         } catch (err) {
@@ -39,18 +41,34 @@ const Home = () => {
         }
     };
 
+    const changeStoryLang = async () => {
+        const { data } = await storyApi.get("/", {
+            params: {
+                storyId: currBook?.dataObj._id,
+                languageCode: chosenLanguage.value,
+                language: chosenLanguage.label,
+            },
+        });
+        setIsLoading(false);
+        setCurrBook(data);
+    };
+
     useEffect(() => {
+        setIsLoading(true);
         getRandomBook();
-    }, [chosenLanguage, selectedRegion]);
+    }, [selectedRegion]);
+
+    useEffect(() => {
+        setIsLoading(true);
+        changeStoryLang();
+    }, [chosenLanguage]);
 
     return (
         <>
             <div className="home-page-container">
                 <div className="story-container">
-                    {!currBook ? (
-                        <Spinner
-                            isSpinning={selectedRegion.stories.length === 0}
-                        ></Spinner>
+                    {isLoading ? (
+                        <Spinner></Spinner>
                     ) : (
                         <StoryView book={currBook!}></StoryView>
                     )}
