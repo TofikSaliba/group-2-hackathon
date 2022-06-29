@@ -22,7 +22,6 @@ const StoryView = () => {
         const { data } = await storyApi.get("/", {
             data: { storyId: randomBookId, language: chosenLanguage },
         });
-        console.log(data);
         setCurrBook({
             title: "The Adventures of a Jackal",
             id: "62bb5ec863e65d1259820293",
@@ -45,7 +44,6 @@ const StoryView = () => {
     }, []);
 
     const renderBookPages = () => {
-        console.log(currBook);
         return currBook?.content.map((currContent, idx) => {
             return (
                 <PageView

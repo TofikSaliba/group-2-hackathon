@@ -4,15 +4,15 @@ import "./login.css";
 import { useHistory, Redirect } from "react-router-dom";
 import { useUser } from "../../context/User.context";
 
-function Login(): JSX.Element {
+function Login() {
   const history = useHistory();
   const { currentUser, setCurrentUser, setToken } = useUser();
-  const [form, setForm] = useState<any>({
+  const [form, setForm] = useState({
     email: "",
     password: "",
   });
-  const [error, setError] = useState<any>("");
-  const [redirect, setRedirect] = useState<any>(false);
+  const [error, setError] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     if (currentUser) {
@@ -20,35 +20,31 @@ function Login(): JSX.Element {
     }
   }, [currentUser]);
 
-  // ! --------------------------------------------------------
-  const handleChange = (e: any) => {
-    setForm((prev: any) => {
+  const handleChange = (e) => {
+    setForm((prev) => {
       return { ...prev, [e.target.id]: e.target.value };
     });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (form.savedLanguage === "Choose Prefered Language") {
-      return setError("Must choose prefered language");
+    if (form.password.length < 6) {
+      return setError("Password length must be at least 6");
     }
     try {
-      const { data } = await userApi().post("/users/signUp", form);
-      setCurrentUser(data.newUser);
+      const { data } = await userApi().post("/users/login", form);
+      setCurrentUser(data.user);
       setToken(data.token);
       setForm({
         email: "",
         password: "",
-        name: "",
-        savedLanguage: "Choose Prefered Language",
       });
+      localStorage.setItem("Token", data.token);
       setError("");
       history.push("/");
-    } catch (err: any) {
+    } catch (err) {
       console.log(err);
-      if (err.response.data.indexOf("E11000 duplicate key") !== -1) {
-        setError("Email adress is already in use!");
-      }
+      setError(err.response.data || err.message);
     }
   };
 

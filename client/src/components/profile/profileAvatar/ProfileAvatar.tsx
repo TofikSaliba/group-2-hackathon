@@ -5,9 +5,25 @@ import { styles } from "./stylesHamburgerMenu";
 import { NavLink } from "react-router-dom";
 import "./profileAvatarStyle.css";
 import { useUser } from "../../../context/User.context";
+import userApi from "../../../apis/userApi";
 
 const ProfileAvatar = () => {
-  const { currentUser } = useUser();
+  const { currentUser, token, setCurrentUser, setToken } = useUser();
+
+  const logOut = async () => {
+    try {
+      const options = {
+        headers: { Authorization: token },
+      };
+      await userApi(options).post("/users/logout");
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setCurrentUser(null);
+      setToken(null);
+      localStorage.removeItem("Token");
+    }
+  };
 
   return (
     <div className="avatar-container">
@@ -36,7 +52,9 @@ const ProfileAvatar = () => {
 
         <li className="hamburger-menu-el">
           {currentUser ? (
-            <NavLink to="/logout">Logout</NavLink>
+            <NavLink onClick={logOut} to="/">
+              Logout
+            </NavLink>
           ) : (
             <NavLink to="/register">Register</NavLink>
           )}
