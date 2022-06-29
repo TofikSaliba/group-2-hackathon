@@ -1,17 +1,15 @@
 import { useState, useEffect } from "react";
 import userApi from "../../apis/userApi";
-import "./register.css";
+import "./login.css";
 import { useHistory, Redirect } from "react-router-dom";
 import { useUser } from "../../context/User.context";
 
-function Register(): JSX.Element {
+function Login(): JSX.Element {
   const history = useHistory();
   const { currentUser, setCurrentUser, setToken } = useUser();
   const [form, setForm] = useState<any>({
     email: "",
     password: "",
-    name: "",
-    savedLanguage: "Choose Prefered Language",
   });
   const [error, setError] = useState<any>("");
   const [redirect, setRedirect] = useState<any>(false);
@@ -22,6 +20,7 @@ function Register(): JSX.Element {
     }
   }, [currentUser]);
 
+  // ! --------------------------------------------------------
   const handleChange = (e: any) => {
     setForm((prev: any) => {
       return { ...prev, [e.target.id]: e.target.value };
@@ -32,9 +31,6 @@ function Register(): JSX.Element {
     e.preventDefault();
     if (form.savedLanguage === "Choose Prefered Language") {
       return setError("Must choose prefered language");
-    }
-    if (form.password.length < 6) {
-      return setError("Password length must be at least 6");
     }
     try {
       const { data } = await userApi().post("/users/signUp", form);
@@ -52,8 +48,6 @@ function Register(): JSX.Element {
       console.log(err);
       if (err.response.data.indexOf("E11000 duplicate key") !== -1) {
         setError("Email adress is already in use!");
-      } else {
-        setError(err.message);
       }
     }
   };
@@ -63,11 +57,11 @@ function Register(): JSX.Element {
   }
 
   return (
-    <div className="register">
-      <h1>Register</h1>
+    <div className="login">
+      <h1>Login</h1>
       <form className="form-body" onSubmit={handleSubmit}>
         <label htmlFor="email" className="form__label">
-          Email{" "}
+          Email
         </label>
         <div className="email">
           <input
@@ -81,7 +75,7 @@ function Register(): JSX.Element {
           />
         </div>
         <label htmlFor="password" className="form__label">
-          Password{" "}
+          Password
         </label>
         <div className="password">
           <input
@@ -94,40 +88,9 @@ function Register(): JSX.Element {
             required
           />
         </div>
-        <label htmlFor="name" className="form__label">
-          Name{" "}
-        </label>
-        <div className="username">
-          <input
-            onChange={handleChange}
-            value={form.name}
-            className="form__input"
-            type="text"
-            id="name"
-            placeholder="Name "
-            required
-          />
-        </div>
-        <label htmlFor="savedLanguage" className="form__label">
-          Language{" "}
-        </label>
-        <div className="language">
-          <select
-            onChange={handleChange}
-            value={form.savedLanguage}
-            id="savedLanguage"
-            name="language"
-          >
-            <option disabled>Choose Prefered Language</option>
-            <option value="Hebrew">Hebrew</option>
-            <option value="Arabic">Arabic</option>
-            <option value="English">English</option>
-            <option value="Russian">Russian</option>
-          </select>
-        </div>
-        <div className="register-button">
+        <div className="login-button">
           <button type="submit" className="button">
-            Register
+            Login
           </button>
         </div>
         <div className="error">{error}</div>
@@ -135,4 +98,4 @@ function Register(): JSX.Element {
     </div>
   );
 }
-export default Register;
+export default Login;
