@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "../../components/navbar/Navbar";
-import { Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from "../home/Home";
 import "./routesStyle.css";
+import Register from "../../components/register/register";
 
 const Routes = () => {
     return (
@@ -10,7 +11,12 @@ const Routes = () => {
             <div className="bg-container"></div>
             <Navbar></Navbar>
             <Switch>
-                <Home></Home>
+                <Route exact component={Home} path="/">
+
+                </Route>
+                <Route exact component={Register} path="/register">
+
+                </Route>
             </Switch>
         </>
     );
