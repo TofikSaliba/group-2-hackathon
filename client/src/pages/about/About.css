@@ -11,12 +11,11 @@
 .about {
     display: flex;
     flex-direction: column;
-    opacity: 0.5;
     font-weight: 800;
     font-size: 2rem;
     align-items: center;
     justify-content: center;
-    background-color: rgb(214, 237, 214);
+    background-color: rgba(214, 237, 214, 0.5);
     border-radius: 5px;
     width: 61vw;
     margin: 90px auto;
