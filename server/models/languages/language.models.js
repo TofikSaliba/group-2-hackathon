@@ -1,8 +1,15 @@
 import mongoose from "mongoose";
 import { languageSchema } from "./language-schema.js";
 
-const languages = ["Arabic", "Hebrew", "Russians", "French", "Spanish"];
+languageSchema.methods.toJSON = function () {
+  const story = this;
+  story.comments = story.originStory.comments;
+  const newObjStory = story.toObject();
+  delete newObjStory.originStory;
+  return newObjStory;
+};
 
+const languages = ["Arabic", "Hebrew", "Russians", "French", "Spanish"];
 const languageCollections = {};
 
 languages.forEach((lang) => {

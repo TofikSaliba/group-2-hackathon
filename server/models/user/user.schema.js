@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     minLength: 6,
   },
+  language: {
+    type: String,
+    default: "English",
+  },
   tokens: [
     {
       token: {
