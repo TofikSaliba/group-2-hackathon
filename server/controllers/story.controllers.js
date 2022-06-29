@@ -12,7 +12,7 @@ export const getStoryById = async (req, res) => {
       if (!story) throw new Error();
       return res.status(200).send(story);
     }
-    res.status(200).send(isStoryTranslated.populate("comments"));
+    res.status(200).send(isStoryTranslated);
   } catch (error) {
     res.status(404).send("Story Not found");
   }
