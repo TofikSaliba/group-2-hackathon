@@ -5,15 +5,15 @@ import ProfileAvatar from "../profile/profileAvatar/ProfileAvatar";
 import "./navbarStyle.css";
 
 const Navbar = () => {
-    return (
-        <div className="navbar-container">
-            <Logo></Logo>
-            <div className="right-navbar-container">
-                <LanguageChooser></LanguageChooser>
-                <ProfileAvatar></ProfileAvatar>
-            </div>
-        </div>
-    );
+  return (
+    <div className="navbar-container">
+      <Logo></Logo>
+      <div className="right-navbar-container">
+        <LanguageChooser></LanguageChooser>
+        <ProfileAvatar></ProfileAvatar>
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;
