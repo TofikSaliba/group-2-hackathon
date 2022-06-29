@@ -5,7 +5,9 @@ import axios from "axios";
 //         ? "https://shirtol-bank-api-mongoose.herokuapp.com/"
 //         : "http://localhost:5000";
 
-const URL = "http://localhost:5000/regions";
+
+const URL =
+process.env.NODE_ENV === "production" ? "/regions" : "http://localhost:5000/regions";
 
 export default axios.create({
     baseURL: URL,
