@@ -3,7 +3,9 @@ import { languageSchema } from "./language-schema.js";
 
 languageSchema.methods.toJSON = function () {
   const lang = this;
-  lang.comments = lang.comments.commnets;
+  lang.comments1 = lang.comments.comments;
+  delete lang.comments;
+  console.log(lang);
   return lang;
 };
 
@@ -14,4 +16,4 @@ languages.forEach((lang) => {
   languageCollections[lang] = mongoose.model(lang, languageSchema);
 });
 
-export { languageCollections, getTranslated };
+export { languageCollections };

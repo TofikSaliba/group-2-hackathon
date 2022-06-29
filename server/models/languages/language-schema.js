@@ -23,6 +23,10 @@ const languageSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Story",
   },
+  comments1: {
+    type: Array,
+    default: [],
+  },
 });
 
 export { languageSchema };
