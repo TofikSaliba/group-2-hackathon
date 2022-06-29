@@ -31,8 +31,9 @@ export const splitContent = async (req, res, next) => {
           remainder = remainder.slice(j);
         }
       }
-
-      return res.send(dividedPages);
+      //   console.log(data);
+      data.storyContent = dividedPages;
+      return res.send(data);
     } catch (error) {
       res.send("not found");
     }
