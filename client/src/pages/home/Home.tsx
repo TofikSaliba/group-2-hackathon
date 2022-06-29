@@ -53,9 +53,13 @@ const Home = () => {
         setCurrBook(data);
     };
 
-    useEffect(() => {
+    const handleGetRandomBook = () => {
         setIsLoading(true);
         getRandomBook();
+    };
+
+    useEffect(() => {
+        handleGetRandomBook();
     }, [selectedRegion]);
 
     useEffect(() => {
@@ -76,7 +80,7 @@ const Home = () => {
                 <div className="buttons-container">
                     <Button
                         btnText={t("btn.random")}
-                        onBtnClicked={getRandomBook}
+                        onBtnClicked={handleGetRandomBook}
                     ></Button>
                     {currentUser && (
                         <Button
