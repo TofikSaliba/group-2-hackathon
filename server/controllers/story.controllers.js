@@ -6,6 +6,11 @@ export const getStoryById = async (req, res) => {
   const { storyId, language, languageCode } = req.query;
 
   try {
+    if (language === "English") {
+      const story = await Story.findById(storyId);
+      if (!story) throw new Error();
+      return res.status(200).send(story);
+    }
     const isStoryTranslated = await languageCollections[language].findById(
       storyId
     );
@@ -26,7 +31,6 @@ export const getStoryById = async (req, res) => {
       "originStory",
       "comments"
     );
-
     res.status(200).send(populateStory);
   } catch (error) {
     res.status(404).send("Story Not found");
