@@ -9,7 +9,7 @@ import Login from "../login/login";
 import userApi from "../../apis/userApi";
 import { useUser } from "../../context/User.context";
 import SavedStories from "../savedStories/SavedStories";
-import About from "../about/About";
+import About from "../about/AboutPage";
 
 const Routes = () => {
     const { setCurrentUser, setToken } = useUser();
