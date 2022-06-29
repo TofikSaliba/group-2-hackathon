@@ -19,11 +19,11 @@ const languageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  comments: {
+  originStory: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Story",
   },
-  comments1: {
+  comments: {
     type: Array,
     default: [],
   },

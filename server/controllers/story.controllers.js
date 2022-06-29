@@ -4,15 +4,20 @@ import { Story } from "../models/story/story.model.js";
 export const getStoryById = async (req, res) => {
   const { storyId, language } = req.body;
   try {
-    const isStoryTranslated = await languageCollections[language]
-      .findById(storyId)
-      .populate("comments");
+    const isStoryTranslated = await languageCollections[language].findById(
+      storyId
+    );
+    const newStory = await isStoryTranslated.populate(
+      "originStory",
+      "comments"
+    );
     if (!isStoryTranslated) {
       const story = await Story.findById(storyId);
       if (!story) throw new Error();
       return res.status(200).send(story);
     }
-    res.status(200).send(isStoryTranslated);
+
+    res.status(200).send(newStory);
   } catch (error) {
     res.status(404).send("Story Not found");
   }
