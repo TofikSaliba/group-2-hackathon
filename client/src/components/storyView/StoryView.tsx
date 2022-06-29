@@ -12,10 +12,10 @@ interface StoryViewProps {
 const StoryView = ({ book }: StoryViewProps) => {
     const renderBookPages = () => {
         // console.log(currBook);
-        return book?.storyContent.map((currContent, idx) => {
+        return book?.dividedPages.map((currContent, idx) => {
             return (
                 <PageView
-                    bookTitle={book.title}
+                    bookTitle={book.dataObj.title}
                     pageContent={currContent}
                     pageNumber={idx + 1}
                     key={currContent}
@@ -30,7 +30,7 @@ const StoryView = ({ book }: StoryViewProps) => {
             {/*@ts-ignore */}
             <HTMLFlipBook
                 width={400}
-                height={300}
+                height={400}
                 size="stretch"
                 minWidth={315}
                 maxWidth={1000}
@@ -41,6 +41,11 @@ const StoryView = ({ book }: StoryViewProps) => {
                 mobileScrollSupport={true}
                 className="story-view"
             >
+                <PageView
+                    bookTitle={""}
+                    pageContent={book.dataObj.title}
+                    isOpeningPage
+                ></PageView>
                 {renderBookPages()}
             </HTMLFlipBook>
         </div>
