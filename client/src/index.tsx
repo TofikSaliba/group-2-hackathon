@@ -10,6 +10,7 @@ import i18next from "i18next";
 import "./assets/fonts/wonderland.ttf";
 import LanguageProvider from "./context/Language.context";
 import PreferencesProvider from "./context/Preferences.context";
+import UserProvider from "./context/User.context";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
@@ -19,9 +20,11 @@ root.render(
     <I18nextProvider i18n={i18next}>
         <LanguageProvider>
             <PreferencesProvider>
-                <BrowserRouter>
-                    <App />
-                </BrowserRouter>
+                <UserProvider>
+                    <BrowserRouter>
+                        <App />
+                    </BrowserRouter>
+                </UserProvider>
             </PreferencesProvider>
         </LanguageProvider>
     </I18nextProvider>
