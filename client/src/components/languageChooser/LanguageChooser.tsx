@@ -2,7 +2,7 @@ import React from "react";
 import "./languageChooserStyle.css";
 import Dropdown, { Option } from "react-dropdown";
 import "react-dropdown/style.css";
-import { useLanguage } from "../../context/Language.context";
+import { Language, useLanguage } from "../../context/Language.context";
 
 const LanguageChooser = () => {
     const { setChosenLanguage } = useLanguage();
@@ -25,7 +25,7 @@ const LanguageChooser = () => {
     const defaultOption = "Choose different Language";
 
     const onLanguageChange = (selectedLang: Option) => {
-        setChosenLanguage(selectedLang.value);
+        setChosenLanguage(selectedLang as Language);
     };
 
     return (

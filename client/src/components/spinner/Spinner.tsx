@@ -4,7 +4,7 @@ interface SpinnerProps {
     isSpinning: boolean;
 }
 const Spinner = ({ isSpinning }: SpinnerProps) => {
-    return <div>Spinner</div>;
+    return <>{isSpinning && <div>Spinner</div>}</>;
 };
 
 export default Spinner;
