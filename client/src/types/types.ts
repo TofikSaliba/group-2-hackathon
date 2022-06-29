@@ -3,7 +3,7 @@ export type BookId = string;
 export interface Book {
     id: BookId;
     title: string;
-    storyContent: Page[];
+    dividedPages: Page[];
     region: string;
     comments?: Comment[];
 }
