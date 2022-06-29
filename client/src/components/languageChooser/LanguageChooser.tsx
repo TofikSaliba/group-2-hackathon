@@ -34,7 +34,7 @@ const LanguageChooser = () => {
             <Dropdown
                 options={options}
                 onChange={onLanguageChange}
-                value={defaultOption}
+                value="English"
                 placeholder="Select an option"
                 className="language-chooser"
                 menuClassName="languages-drop-down"
