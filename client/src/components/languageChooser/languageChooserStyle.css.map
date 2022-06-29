@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACjB,MAAM,EAAE,OAAO;EACf,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,MAAM;CACrB;;AAED,AAAA,iBAAiB,CAAC;EACd,SAAS,EAAE,MAAM;CACpB",
+    "mappings": "AAEA,AAAA,oBAAoB,CAAC;EACjB,MAAM,EAAE,OAAO;EACf,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,MAAM;CAIrB;;ACUG,MAAM,EAAE,SAAS,EAAE,KAAK;EDlB5B,AAAA,oBAAoB,CAAC;IAMb,SAAS,EAAE,MAAM;GAExB;;;AAED,AAAA,iBAAiB,CAAC;EACd,SAAS,EAAE,MAAM;CAIpB;;ACGG,MAAM,EAAE,SAAS,EAAE,KAAK;EDR5B,AAAA,iBAAiB,CAAC;IAGV,SAAS,EAAE,MAAM;GAExB",
     "sources": [
-        "languageChooserStyle.scss"
+        "languageChooserStyle.scss",
+        "../../utils/mixins/mixin.scss"
     ],
     "names": [],
     "file": "languageChooserStyle.css"

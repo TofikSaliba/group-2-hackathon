@@ -22,7 +22,7 @@ const LanguageChooser = () => {
         },
         { label: "English", value: "en" },
     ];
-    const defaultOption = "Choose different Language";
+    const defaultOption = { label: "English", value: "en" };
 
     const onLanguageChange = (selectedLang: Option) => {
         setChosenLanguage(selectedLang as Language);

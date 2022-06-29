@@ -1,17 +1,19 @@
-@use "../../utils/styleVars";
+@import "../../utils/mixins/mixin.scss";
+@use "../../utils/styleVars.scss";
 
 .btn-container {
     padding: 0.8rem 2.8rem;
     font-size: 2rem;
     letter-spacing: 2px;
     border-radius: 8px;
-    background-color: $btn;
+    background-color: #e66d3993;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 9px 28px, rgba(0, 0, 0, 0.22) 0px 2px 5px;
     color: #fff;
     width: max-content;
-    // @include responsive(mobile) {
-    //     padding: 0.6rem 2.4rem;
-    // }
+    @include responsive(mini-tablet) {
+        padding: 0.6rem 2.4rem;
+        font-size: 1.3rem;
+    }
     cursor: pointer;
     &:active {
         transition: box-shadow 100ms ease-in-out;
