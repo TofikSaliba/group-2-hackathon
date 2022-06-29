@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllRegions, getRegion } from "../controllers/region.controllers.js";
+import { getAllRegions } from "../controllers/region.controllers.js";
 
 import { auth } from "../middleware/auth/auth.js";
 
