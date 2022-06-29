@@ -1,13 +1,33 @@
 import React from "react";
 import "./languageChooserStyle.css";
-import Dropdown from "react-dropdown";
+import Dropdown, { Option } from "react-dropdown";
 import "react-dropdown/style.css";
+import { useLanguage } from "../../context/Language.context";
 
 const LanguageChooser = () => {
-    const options = ["Hebrew", "Arabic", "Russian", "English"];
+    const { setChosenLanguage } = useLanguage();
+
+    const options = [
+        {
+            label: "Hebrew",
+            value: "he",
+        },
+        {
+            label: "Arabic",
+            value: "ar",
+        },
+        {
+            label: "Russian",
+            value: "ru",
+        },
+        { label: "English", value: "en" },
+    ];
     const defaultOption = "Choose different Language";
 
-    const onLanguageChange = () => {};
+    const onLanguageChange = (selectedLang: Option) => {
+        console.log(selectedLang);
+        setChosenLanguage(selectedLang.value);
+    };
 
     return (
         <Dropdown
