@@ -7,7 +7,7 @@ import "./homeStyle.css";
 const Home = () => {
     const { t } = useLanguage();
 
-    const getRandomStory = () => {};
+    const getRandomStory = async () => {};
 
     const saveToProfile = () => {};
 

@@ -29,3 +29,10 @@ export interface Comment {
     date: Date;
     content: string;
 }
+
+export interface Region {
+    language: string;
+    regionName: string;
+    stories: string[];
+    _id: string;
+}
