@@ -3,6 +3,7 @@ import { Story } from "../models/story/story.model.js";
 import { createTranslatedStory } from "../services/story/story.services.js";
 
 export const getStoryById = async (req, res) => {
+
   const { storyId, language, languageCode } = req.query;
 
   try {
@@ -35,6 +36,7 @@ export const getStoryById = async (req, res) => {
   } catch (error) {
     res.status(404).send("Story Not found");
   }
+
 };
 
 export const createCommentToStory = () => {};
