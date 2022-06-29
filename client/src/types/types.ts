@@ -12,7 +12,7 @@ export type Page = string;
 
 export type UserId = string;
 
-export type GetBook = () => Book;
+export type GetBook = () => Promise<Book>;
 
 export interface User {
     id: UserId;

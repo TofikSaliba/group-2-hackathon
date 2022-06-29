@@ -10,9 +10,10 @@ export const signUpUser = async (req, res) => {
   try {
     const newUser = new User(userBody);
     await newUser.save();
-    res.status(200).send(newUser);
+    const token = await newUser.generateAuthToken();
+    res.status(200).send({newUser, token});
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).send(error.message);
   }
 };
 
@@ -58,6 +59,7 @@ export const getUserProfile = async (req, res) => {
 };
 
 export const editProfile = async (req, res) => {
+  //please check
   const updates = Object.keys(req.body);
   const allowedUpdates = [
     "name",
