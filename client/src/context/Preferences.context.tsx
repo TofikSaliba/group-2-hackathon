@@ -31,7 +31,7 @@ const PreferencesProvider = ({ children }: PreferencesProviderProps) => {
     );
 
     const getAllRegions = async () => {
-        const { data } = await regionsApi.get("/regions/getAllRegions");
+        const { data } = await regionsApi.get("/getAllRegions");
         console.log(data);
         setAllRegions(data);
         setSelectedRegion(data[0]);

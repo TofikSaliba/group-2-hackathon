@@ -53,8 +53,6 @@ function Register(): JSX.Element {
     }
   };
 
-  console.log(currentUser);
-
   if (redirect) {
     return <Redirect to="/" />;
   }

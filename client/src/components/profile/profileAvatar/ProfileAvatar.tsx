@@ -8,6 +8,7 @@ import { useUser } from "../../../context/User.context";
 
 const ProfileAvatar = () => {
   const { currentUser } = useUser();
+
   return (
     <div className="avatar-container">
       <Menu
@@ -23,12 +24,16 @@ const ProfileAvatar = () => {
           <NavLink to="/about">About</NavLink>
         </li>
         <li className="hamburger-menu-el">
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
+        <li className="hamburger-menu-el">
           {currentUser ? (
             <NavLink to="/profile">Profile</NavLink>
           ) : (
             <NavLink to="/login">Login</NavLink>
           )}
         </li>
+
         <li className="hamburger-menu-el">
           {currentUser ? (
             <NavLink to="/logout">Logout</NavLink>

@@ -1,4 +1,5 @@
 import React, { LegacyRef } from "react";
+import "./pageViewStyle.css";
 
 interface PageViewProps {
     bookTitle: string;
@@ -12,10 +13,12 @@ const PageView = React.forwardRef(
         ref: LegacyRef<HTMLDivElement>
     ) => {
         return (
-            <div ref={ref}>
-                <h3>{bookTitle}</h3>
-                <p>{pageContent}</p>
-                <p>{pageNumber}</p>
+            <div className="page" ref={ref}>
+                <div className="page-content">
+                    <h3 className="page-header">{bookTitle}</h3>
+                    <p className="page-text">{pageContent}</p>
+                    <p className="page-footer">{pageNumber}</p>
+                </div>
             </div>
         );
     }
