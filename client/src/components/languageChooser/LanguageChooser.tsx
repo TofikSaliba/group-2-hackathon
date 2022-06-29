@@ -29,14 +29,17 @@ const LanguageChooser = () => {
     };
 
     return (
-        <Dropdown
-            options={options}
-            onChange={onLanguageChange}
-            value={defaultOption}
-            placeholder="Select an option"
-            className="language-chooser"
-            menuClassName="languages-drop-down"
-        />
+        <div className="selector-container">
+            <h3 className="selector-label">Language</h3>
+            <Dropdown
+                options={options}
+                onChange={onLanguageChange}
+                value={defaultOption}
+                placeholder="Select an option"
+                className="language-chooser"
+                menuClassName="languages-drop-down"
+            />
+        </div>
     );
 };
 

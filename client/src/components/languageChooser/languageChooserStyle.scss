@@ -16,3 +16,16 @@
         font-size: 1.2rem;
     }
 }
+
+.selector-label {
+    text-align: center;
+}
+
+.selector-container {
+    display: flex;
+    gap: 1rem;
+    @include responsive(mobile) {
+        flex-direction: column;
+        gap: 0;
+    }
+}

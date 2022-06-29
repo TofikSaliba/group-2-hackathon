@@ -18,14 +18,17 @@ const RegionChooser = () => {
     };
 
     return (
-        <Dropdown
-            options={getAllRegions()}
-            onChange={onRegionChange}
-            value={selectedRegion.regionName}
-            placeholder="Select a region"
-            className="language-chooser"
-            menuClassName="languages-drop-down"
-        />
+        <div className="selector-container">
+            <h3 className="selector-label">Region</h3>
+            <Dropdown
+                options={getAllRegions()}
+                onChange={onRegionChange}
+                value={selectedRegion.regionName}
+                placeholder="Select a region"
+                className="language-chooser"
+                menuClassName="languages-drop-down"
+            />
+        </div>
     );
 };
 
