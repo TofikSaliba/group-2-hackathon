@@ -5,6 +5,7 @@ import Spinner from "../../components/spinner/Spinner";
 import StoryView from "../../components/storyView/StoryView";
 import { useLanguage } from "../../context/Language.context";
 import { usePreferences } from "../../context/Preferences.context";
+import { useUser } from "../../context/User.context";
 import { Book } from "../../types/types";
 import "./homeStyle.css";
 
@@ -13,11 +14,7 @@ const Home = () => {
     const { selectedRegion } = usePreferences();
     const { chosenLanguage } = useLanguage();
     const [currBook, setCurrBook] = useState<Book>();
-
-    const getRandomStory = async () => {
-        //    const randomBook = await getRandomBook();
-        //    setCurrBook(randomBook)
-    };
+    const { currentUser } = useUser();
 
     const saveToProfile = () => {};
 
@@ -42,8 +39,6 @@ const Home = () => {
         }
     };
 
-    const renderBook = () => {};
-
     useEffect(() => {
         getRandomBook();
     }, [chosenLanguage, selectedRegion]);
@@ -63,12 +58,14 @@ const Home = () => {
                 <div className="buttons-container">
                     <Button
                         btnText={t("btn.random")}
-                        onBtnClicked={getRandomStory}
+                        onBtnClicked={getRandomBook}
                     ></Button>
-                    <Button
-                        btnText={t("btn.save")}
-                        onBtnClicked={saveToProfile}
-                    ></Button>
+                    {currentUser && (
+                        <Button
+                            btnText={t("btn.save")}
+                            onBtnClicked={saveToProfile}
+                        ></Button>
+                    )}
                 </div>
             </div>
         </>
