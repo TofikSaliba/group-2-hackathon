@@ -15,7 +15,6 @@ const storySchema = new mongoose.Schema({
   },
   storyContent: {
     type: String,
-
     required: true,
   },
   language: {

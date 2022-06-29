@@ -4,9 +4,9 @@ import { Story } from "../models/story/story.model.js";
 export const getStoryById = async (req, res) => {
   const { storyId, language } = req.body;
   try {
-    const isStoryTranslated = await languageCollections[language].findById(
-      storyId
-    );
+    const isStoryTranslated = await languageCollections[language]
+      .findById(storyId)
+      .populate("comments");
     if (!isStoryTranslated) {
       const story = await Story.findById(storyId);
       if (!story) throw new Error();
