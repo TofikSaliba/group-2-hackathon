@@ -47,6 +47,11 @@
 
         .opening-page {
             font-size: 4rem;
+            line-height: 5rem;
+            @include responsive(mini-tablet) {
+                padding: 0.6rem 2.4rem;
+                font-size: 1.3rem;
+            }
         }
 
         .page-footer {
