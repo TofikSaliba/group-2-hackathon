@@ -8,18 +8,22 @@ import { BrowserRouter } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
 import "./assets/fonts/wonderland.ttf";
+import LanguageProvider from "./context/Language.context";
+import PreferencesProvider from "./context/Preferences.context";
 
-i18next.init({
-    interpolation: { escapeValue: false }, // React already does escaping
-});
-
-const root = ReactDOM.createRoot(document.getElementById("root")  as HTMLElement);
+const root = ReactDOM.createRoot(
+    document.getElementById("root") as HTMLElement
+);
 root.render(
     // <React.StrictMode>
     <I18nextProvider i18n={i18next}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <LanguageProvider>
+            <PreferencesProvider>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </PreferencesProvider>
+        </LanguageProvider>
     </I18nextProvider>
 
     // </React.StrictMode>

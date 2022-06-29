@@ -23,6 +23,26 @@ const userSchema = new mongoose.Schema({
     required: true,
     minLength: 6,
   },
+  savedLanguage: {
+    type: String,
+    default: "English",
+  },
+  favorites: {
+    type: [mongoose.Schema.Types.ObjectId],
+    default: [],
+  },
+  savedProgress: [
+    {
+      _id: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+      },
+      index: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
   tokens: [
     {
       token: {
