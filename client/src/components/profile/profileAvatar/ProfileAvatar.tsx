@@ -7,43 +7,43 @@ import "./profileAvatarStyle.css";
 import { useUser } from "../../../context/User.context";
 
 const ProfileAvatar = () => {
-  const { currentUser } = useUser();
+    const { currentUser } = useUser();
 
-  return (
-    <div className="avatar-container">
-      <Menu
-        className="hamburger-menu"
-        styles={styles}
-        right
-        customBurgerIcon={<img src={imageData.avatar} alt="avatar" />}
-      >
-        <li className="hamburger-menu-el">
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li className="hamburger-menu-el">
-          <NavLink to="/about">About</NavLink>
-        </li>
-        <li className="hamburger-menu-el">
-          <NavLink to="/contact">Contact</NavLink>
-        </li>
-        <li className="hamburger-menu-el">
-          {currentUser ? (
-            <NavLink to="/profile">Profile</NavLink>
-          ) : (
-            <NavLink to="/login">Login</NavLink>
-          )}
-        </li>
+    return (
+        <div className="avatar-container">
+            <Menu
+                className="hamburger-menu"
+                styles={styles}
+                right
+                customBurgerIcon={<img src={imageData.avatar} alt="avatar" />}
+            >
+                <li className="hamburger-menu-el">
+                    <NavLink to="/">Home</NavLink>
+                </li>
+                <li className="hamburger-menu-el">
+                    <NavLink to="/about">About</NavLink>
+                </li>
+                <li className="hamburger-menu-el">
+                    <NavLink to="/contact">Contact</NavLink>
+                </li>
+                <li className="hamburger-menu-el">
+                    {currentUser ? (
+                        <NavLink to="/saved-stories">Saved Stories</NavLink>
+                    ) : (
+                        <NavLink to="/login">Login</NavLink>
+                    )}
+                </li>
 
-        <li className="hamburger-menu-el">
-          {currentUser ? (
-            <NavLink to="/logout">Logout</NavLink>
-          ) : (
-            <NavLink to="/register">Register</NavLink>
-          )}
-        </li>
-      </Menu>
-    </div>
-  );
+                <li className="hamburger-menu-el">
+                    {currentUser ? (
+                        <NavLink to="/logout">Logout</NavLink>
+                    ) : (
+                        <NavLink to="/register">Register</NavLink>
+                    )}
+                </li>
+            </Menu>
+        </div>
+    );
 };
 
 export default ProfileAvatar;
