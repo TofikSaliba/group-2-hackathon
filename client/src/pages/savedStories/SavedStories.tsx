@@ -23,7 +23,9 @@ const SavedStories = () => {
             </div>
             <FavStoriesContainer>
                 {currentUser.favorites.length === 0 ? (
-                    <h2>You don't have favorites book yet</h2>
+                    <h2 className="no-stories">
+                        You don't have favorites book yet
+                    </h2>
                 ) : (
                     renderFavoriteStories()
                 )}
