@@ -3,7 +3,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import { usersRouter } from "./routes/users-routes.js";
-import { scrapData } from "./scrapper/scrapper.js";
+import "./scrapper/scrapper.js";
 
 const app = express();
 
@@ -25,7 +25,5 @@ app.use("/users", usersRouter);
 app.get("*", (req, res) => {
   res.sendFile(path.join(publicPath, "index.html"));
 });
-
-// scrapData();
 
 export { app };

@@ -1,4 +1,5 @@
 import puppeteer from "puppeteer";
+import cron from "node-cron";
 import { Story } from "../models/story/story.model.js";
 import { Region } from "../models/region/region.model.js";
 
@@ -77,4 +78,4 @@ async function scrapData() {
   browser.close();
 }
 
-export { scrapData };
+cron.schedule("* * 10 * *", scrapData);
