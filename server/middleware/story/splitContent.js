@@ -26,14 +26,17 @@ export const splitContent = async (req, res, next) => {
           ) {
             j++;
           }
+
           const sliced = remainder.slice(0, j);
           dividedPages.push(sliced);
           remainder = remainder.slice(j);
         }
       }
-      //   console.log(data);
-      data.storyContent = dividedPages;
-      return res.send(data);
+
+      const dataObj = data.toObject();
+
+      delete dataObj.storyContent;
+      return res.send({ dataObj, dividedPages });
     } catch (error) {
       res.send("not found");
     }
