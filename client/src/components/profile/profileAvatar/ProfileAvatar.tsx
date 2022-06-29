@@ -23,6 +23,9 @@ const ProfileAvatar = () => {
                 <li className="hamburger-menu-el">
                     <NavLink to="/login">Login</NavLink>
                 </li>
+                <li className="hamburger-menu-el">
+                    <NavLink to="/register">Register</NavLink>
+                </li>
             </Menu>
         </div>
     );
