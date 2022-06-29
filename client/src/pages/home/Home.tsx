@@ -2,24 +2,12 @@ import React from "react";
 import Button from "../../components/button/Button";
 import StoryView from "../../components/storyView/StoryView";
 import { useLanguage } from "../../context/Language.context";
-import regionsApi from "../../apis/regionsApi";
 import "./homeStyle.css";
-import { Region } from "../../types/types";
 
 const Home = () => {
     const { t } = useLanguage();
 
-    const getAllRegions = async () => {
-        const { data } = await regionsApi.get("/regions/getAllRegions");
-        const allRegions = data.map((region: Region) => region.regionName);
-        console.log(allRegions);
-
-        return allRegions;
-    };
-
-    const getRandomStory = async () => {
-        await getAllRegions();
-    };
+    const getRandomStory = async () => {};
 
     const saveToProfile = () => {};
 
