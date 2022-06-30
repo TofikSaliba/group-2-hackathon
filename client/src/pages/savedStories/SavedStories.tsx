@@ -6,9 +6,6 @@ import "./savedStoriesStyles.css";
 
 const SavedStories = () => {
     const { currentUser } = useUser();
-
-    console.log(currentUser);
-
     const renderFavoriteStories = () => {
         return currentUser.favorites.map((favStory: string) => {
             return <StoryCard storyTitle={favStory}></StoryCard>;

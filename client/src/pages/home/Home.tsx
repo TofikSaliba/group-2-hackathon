@@ -34,7 +34,6 @@ const Home = () => {
                 },
             });
             setIsLoading(false);
-            console.log(data);
             setCurrBook(data);
         } catch (err) {
             console.log(err);

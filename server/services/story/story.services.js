@@ -12,7 +12,6 @@ export const createTranslatedStory = async (story, languageCode, language) => {
         languageCode,
         story.storyContent
     );
-    console.log(translateStoryContent);
 
     const newTranslatedStory = await new languageCollections[language]({
         _id: story.id,

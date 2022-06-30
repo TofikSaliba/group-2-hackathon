@@ -23,7 +23,6 @@ export function Contact() {
     e.preventDefault();
     try {
       const { data } = await userApi().post("/contact/submit", form);
-      console.log(data);
       setForm({
         firstName: "",
         lastName: "",

@@ -11,7 +11,6 @@ interface StoryViewProps {
 
 const StoryView = ({ book }: StoryViewProps) => {
     const renderBookPages = () => {
-        // console.log(currBook);
         return book?.dividedPages.map((currContent, idx) => {
             return (
                 <PageView
