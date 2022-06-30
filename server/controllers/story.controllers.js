@@ -8,7 +8,10 @@ export const getStoryById = async (req, res) => {
     try {
         if (language === "English") {
             const story = await Story.findById(storyId);
-            if (!story) throw new Error();
+            if (!story) {
+                console.log(storyId);
+                throw new Error();
+            }
             return res.status(200).send(story);
         }
         const isStoryTranslated = await languageCollections[language].findById(

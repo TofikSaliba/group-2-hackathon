@@ -26,6 +26,8 @@ const Home = () => {
             );
             const randomBookId = selectedRegion.stories[randomBookIdx];
 
+            if( !randomBookId) return;
+
             const { data } = await storyApi.get("/", {
                 params: {
                     storyId: randomBookId,
@@ -41,15 +43,20 @@ const Home = () => {
     };
 
     const changeStoryLang = async () => {
-        const { data } = await storyApi.get("/", {
-            params: {
-                storyId: currBook?.dataObj._id,
-                languageCode: chosenLanguage.value,
-                language: chosenLanguage.label,
-            },
-        });
-        setIsLoading(false);
-        setCurrBook(data);
+        if( !currBook || !currBook.dataObj || !currBook.dataObj._id) return;
+        try{
+            const { data } = await storyApi.get("/", {
+                params: {
+                    storyId: currBook?.dataObj._id,
+                    languageCode: chosenLanguage.value,
+                    language: chosenLanguage.label,
+                },
+            });
+            setIsLoading(false);
+            setCurrBook(data);
+        }catch(err){
+            console.log(err);
+        }
     };
 
     const handleGetRandomBook = () => {
