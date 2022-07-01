@@ -25,9 +25,10 @@ const StoryView = ({ book }: StoryViewProps) => {
     };
 
     return (
-        <div className="story-view-container">
+        // <div className="story-view-container">
+        <>
             <OriginTitle></OriginTitle>
-            <div>
+            <div className="story-view-container">
                 {/*@ts-ignore */}
                 <HTMLFlipBook
                     width={550}
@@ -49,7 +50,8 @@ const StoryView = ({ book }: StoryViewProps) => {
                     <PageCover>The END.</PageCover>
                 </HTMLFlipBook>
             </div>
-        </div>
+        </>
+        // </div>
     );
 };
 
