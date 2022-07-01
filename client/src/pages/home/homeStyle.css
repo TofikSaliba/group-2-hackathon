@@ -1,14 +1,14 @@
 .home-page-container {
-  height: 90vh;
-  width: 100%;
-  font-family: "Poppins", sans-serif;
+    height: 90vh;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
 }
 .home-page-container .buttons-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  bottom: 2rem;
-  padding: 0 2rem;
-  margin-top: 1rem;
-}/*# sourceMappingURL=homeStyle.css.map */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 2rem;
+    padding: 0 2rem;
+    margin-top: 1rem;
+} /*# sourceMappingURL=homeStyle.css.map */

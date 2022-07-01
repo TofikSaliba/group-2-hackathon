@@ -16,6 +16,11 @@ const Home = () => {
     const [currBook, setCurrBook] = useState<Book>();
     const { currentUser } = useUser();
     const [isLoading, setIsLoading] = useState(true);
+    const { setIsHome } = usePreferences();
+
+    useEffect(() => {
+        setIsHome(true);
+    }, []);
 
     const saveToProfile = () => {};
 
@@ -88,12 +93,12 @@ const Home = () => {
                         btnText={t("btn.random")}
                         onBtnClicked={handleGetRandomBook}
                     ></Button>
-                    {currentUser && (
+                    {/* {currentUser && (
                         <Button
                             btnText={t("btn.save")}
                             onBtnClicked={saveToProfile}
                         ></Button>
-                    )}
+                    )} */}
                 </div>
             </div>
         </>
