@@ -32,7 +32,7 @@ const StoryView = ({ book }: StoryViewProps) => {
                 {/*@ts-ignore */}
                 <HTMLFlipBook
                     width={550}
-                    height={733}
+                    height={0.7 * window.innerHeight}
                     // size="stretch"
                     minWidth={315}
                     maxWidth={1000}

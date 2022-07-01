@@ -54,11 +54,12 @@
     font-size: 1.3rem;
   }
 }
-.page .page-content .page-footer {
+.page .page-content .page-number {
   height: 30px;
   border-top: solid 1px hsl(35deg, 55%, 90%);
   font-size: 80%;
   color: hsl(35deg, 20%, 50%);
+  padding: 1rem;
 }
 .page.--left {
   border-right: 0;

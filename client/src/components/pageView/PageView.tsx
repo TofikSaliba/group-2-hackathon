@@ -16,6 +16,7 @@ const PageView = React.forwardRef(
         return (
             <div className="page" ref={ref}>
                 <div className="page-content">
+                    <p className="page-number">{pageNumber}</p>
                     <h3 className="page-header">{bookTitle}</h3>
                     <p
                         className={`page-text ${
@@ -24,7 +25,6 @@ const PageView = React.forwardRef(
                     >
                         {pageContent}
                     </p>
-                    <p className="page-footer">{pageNumber}</p>
                 </div>
             </div>
         );
