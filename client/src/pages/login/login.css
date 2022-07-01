@@ -1,4 +1,4 @@
-/* .login {
+.login {
   display: flex;
   flex-direction: column;
   font-weight: 700;
@@ -7,78 +7,37 @@
   justify-content: center;
   border-radius: 5px;
   width: 550px;
-  margin: 20px auto;
+  margin: 100px auto;
   padding: 20px;
   font-family: "poppins", sans-serif;
   background-color: #f6f6f68a;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.form-body {
+.form-body label {
   text-align: left;
-  padding: 20px 10px;
+  margin-left: 5px;
 }
 
-.email,
-.password,
-.language,
-.username {
-  margin-bottom: 1rem;
-}
-
-.form__label {
-  width: 40%;
-  text-align: center;
-}
-
-.form_input {
-  width: 60%;
-}
-
-.button {
-  text-align: center;
-  background-color: green;
-  padding: 0.5em;
-  border-radius: 50%;
-  color: white;
-}
-.button:hover {
-  background-color: rgb(7, 54, 7);
-}
-
-ul li {
-  list-style: none;
-}
-
-.comments {
+.form-body {
+  width: 50%;
   display: flex;
   flex-direction: column;
-}
-
-input {
-  border-radius: 3%;
+  gap: 2rem;
 }
 
 @media (max-width: 800px) {
   .login {
-    width: 85%;
-    height: 50vh;
+    width: 70%;
+    margin: 50px auto;
   }
-  .form__label {
-    font-size: 1.4rem;
-  }
-  .login-title {
-    font-size: 1.9rem;
-  }
-  #password,
-  #email {
-    font-size: 1.4rem;
+  .form-body {
+    width: 60%;
   }
 }
 
 @media (max-width: 500px) {
-  #password,
-  #email {
-    width: 20rem;
+  .form-body {
+    width: 80%;
   }
-} */
+}

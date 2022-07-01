@@ -5,6 +5,7 @@ import { useHistory, Redirect } from "react-router-dom";
 import { useUser } from "../../context/User.context";
 import Button from "../../components/button/Button";
 import { usePreferences } from "../../context/Preferences.context";
+import CustomInput from "../../components/customInput/CustomInput";
 
 function Register(): JSX.Element {
   const history = useHistory();
@@ -13,7 +14,7 @@ function Register(): JSX.Element {
     email: "",
     password: "",
     name: "",
-    savedLanguage: "Choose Prefered Language",
+    savedLanguage: "English",
   });
   const [confirm, setConfirm] = useState<any>("");
   const [error, setError] = useState<any>("");
@@ -37,9 +38,6 @@ function Register(): JSX.Element {
   };
 
   const handleSubmit = async () => {
-    if (form.savedLanguage === "Choose Prefered Language") {
-      return setError("Must choose prefered language");
-    }
     if (confirm !== form.password) {
       return setError("Passwords do not match!");
     }
@@ -55,7 +53,7 @@ function Register(): JSX.Element {
         email: "",
         password: "",
         name: "",
-        savedLanguage: "Choose Prefered Language",
+        savedLanguage: "English",
       });
       localStorage.setItem("Token", data.token);
       setError("");
@@ -77,77 +75,53 @@ function Register(): JSX.Element {
   return (
     <div className="register">
       <h1>Register</h1>
-      <form className="form-body">
-        <label htmlFor="email" className="form__label">
-          Email{" "}
-        </label>
-        <div className="email">
-          <input
-            onChange={handleChange}
-            value={form.email}
-            type="email"
-            id="email"
-            className="form__input"
-            placeholder="Email"
-            required
-          />
-        </div>
-        <label htmlFor="password" className="form__label">
-          Password{" "}
-        </label>
-        <div className="password">
-          <input
-            onChange={handleChange}
-            value={form.password}
-            className="form__input"
-            type="password"
-            id="password"
-            placeholder="Password"
-            required
-          />
-        </div>
-        <label htmlFor="confirmPassword" className="form__label">
-          Confirm Password
-        </label>
-        <div className="password">
-          <input
-            onChange={(e) => setConfirm(e.target.value)}
-            value={confirm}
-            className="form__input"
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirm Password"
-            required
-          />
-        </div>
-        <label htmlFor="name" className="form__label">
-          Name{" "}
-        </label>
-        <div className="username">
-          <input
-            onChange={handleChange}
-            value={form.name}
-            className="form__input"
-            type="text"
-            id="name"
-            placeholder="Name "
-            required
-          />
-        </div>
-        <label htmlFor="savedLanguage" className="form__label">
-          Language{" "}
-        </label>
+      <form onSubmit={handleSubmit} className="registerFrom">
+        <CustomInput
+          id={"name"}
+          onChange={handleChange}
+          type="text"
+          value={form.name}
+          inputLabel="full name"
+          required={true}
+        />
+        <CustomInput
+          id={"email"}
+          onChange={handleChange}
+          type="email"
+          value={form.email}
+          inputLabel="email"
+          required={true}
+        />
+        <CustomInput
+          id={"password"}
+          onChange={handleChange}
+          type="password"
+          value={form.password}
+          inputLabel="password"
+          required={true}
+        />
+        <CustomInput
+          id={"confPass"}
+          onChange={(e: any) => setConfirm(e.target.value)}
+          type="password"
+          value={confirm}
+          inputLabel="confirm password"
+          required={true}
+        />
+
         <div className="language">
+          <label htmlFor="savedLanguage" className="form__label">
+            Language{" "}
+          </label>
           <select
             onChange={handleChange}
             value={form.savedLanguage}
             id="savedLanguage"
             name="language"
           >
-            <option disabled>Choose Prefered Language</option>
+            <option value="English">English</option>
             <option value="Hebrew">Hebrew</option>
             <option value="Arabic">Arabic</option>
-            <option value="English">English</option>
             <option value="Russian">Russian</option>
           </select>
         </div>

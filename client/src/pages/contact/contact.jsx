@@ -45,50 +45,51 @@ export function Contact() {
 
   return (
     <div className="mainContainer">
-      <div className="container">
-        <div className="row header">
-          <h1>CONTACT US! &nbsp;</h1>
-          <h2>Fill out the form below to learn more!</h2>
+      <h1>CONTACT US! &nbsp;</h1>
+      <form onSubmit={handleSubmit} action="#">
+        <CustomInput
+          id="FullName"
+          onChange={handleChange}
+          type="text"
+          value={form.fullName}
+          inputLabel="Full Name"
+          required={true}
+        />
+        <CustomInput
+          id="Subject"
+          onChange={handleChange}
+          type="text"
+          value={form.subject}
+          inputLabel="Subject"
+          required={true}
+        />
+        <CustomInput
+          id="email"
+          onChange={handleChange}
+          type="email"
+          value={form.email}
+          inputLabel="email"
+          required={true}
+        />
+        <div className="input-container">
+          <label className={form.description && "filled"} htmlFor="description">
+            description
+          </label>
+          <textarea
+            id="description"
+            onChange={handleChange}
+            value={form.description}
+            required={true}
+          />
         </div>
-        <form onSubmit={handleSubmit} action="#">
-          <CustomInput
-            id="FullName"
-            onChange={handleChange}
-            type="text"
-            value={form.fullName}
-            inputLabel="Full Name"
-          />
-          <CustomInput
-            id="Subject"
-            onChange={handleChange}
-            type="text"
-            value={form.subject}
-            inputLabel="Subject"
-          />
-          <CustomInput
-            id="email"
-            onChange={handleChange}
-            type="email"
-            value={form.email}
-            inputLabel="email"
-          />
-          <div>
-            <label htmlFor="description">description</label>
-            <textarea
-              id="description"
-              onChange={handleChange}
-              value={form.description}
-            />
-          </div>
-          <Button
-            btnText="Submit"
-            onBtnClicked={handleSubmit}
-            className="form-btn"
-          ></Button>
+        <Button
+          btnText="Submit"
+          onBtnClicked={handleSubmit}
+          className="form-btn"
+        ></Button>
 
-          <div>{submitMsg}</div>
-        </form>
-      </div>
+        <div>{submitMsg}</div>
+      </form>
     </div>
   );
 }
