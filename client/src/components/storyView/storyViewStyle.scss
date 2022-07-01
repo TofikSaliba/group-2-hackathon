@@ -1,4 +1,41 @@
-@use "../../utils/styleVars";
+@use "../../utils/styleVars.scss";
+
+.book-container {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+}
+.story-block {
+    padding: 1rem 0;
+    overflow: hidden;
+    width: 100%;
+    .container-md {
+        height: 100%;
+        position: relative;
+        max-width: 72rem;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 1.5rem;
+        .stf__parent {
+            background-image: url("../../assets/img/background/book-bg.jpg") !important;
+            min-width: 31.5rem;
+            min-height: 40rem;
+            width: 100%;
+            max-width: 200rem;
+            display: block;
+            position: relative;
+        }
+        .flip-book {
+            background-image: url("../../assets/img/background/book-bg.jpg") !important;
+            min-width: 315px;
+            min-height: 400px;
+            width: 100%;
+            max-width: 2000px;
+            display: block;
+        }
+    }
+}
 
 .story-view-container {
     display: flex;
@@ -14,10 +51,9 @@
         width: max-content;
     }
     .story-view {
-        background: $box-bg;
         border-radius: 4px;
-        width: 50%;
-        height: 70vh;
+        // width: 50%;
+        height: 100%;
     }
 }
 

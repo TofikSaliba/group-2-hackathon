@@ -1,11 +1,25 @@
 $media_queries: (
-    "small-screen": "(max-width: 1100px)",
-    "tablet": "(max-width: 850px)",
-    "mini-tablet": "(max-width: 790px)",
-    "mobile": "(max-width:450px)",
-    "big-height-screen": "(max-height: 1080px)",
-    "big-width-screen": "(max-width: 1920px)",
-    "galaxy-fold": "(max-width: 300px)",
+    "small-screen": (
+        max-width: 1100px,
+    ),
+    "tablet": (
+        max-width: 850px,
+    ),
+    "mini-tablet": (
+        max-width: 790px,
+    ),
+    "mobile": (
+        max-width: 450px,
+    ),
+    "big-height-screen": (
+        max-height: 1080px,
+    ),
+    "big-width-screen": (
+        max-width: 1920px,
+    ),
+    "galaxy-fold": (
+        max-width: 300px,
+    ),
 );
 
 @mixin responsive($breakpoints) {

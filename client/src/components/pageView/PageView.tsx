@@ -11,7 +11,7 @@ interface PageViewProps {
 const PageView = React.forwardRef(
     (
         { bookTitle, pageContent, pageNumber, isOpeningPage }: PageViewProps,
-        ref: LegacyRef<HTMLDivElement>
+        ref: any
     ) => {
         return (
             <div className="page" ref={ref}>

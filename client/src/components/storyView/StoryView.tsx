@@ -4,6 +4,7 @@ import "./storyViewStyle.css";
 import HTMLFlipBook from "react-pageflip";
 import { Book } from "../../types/types";
 import PageView from "../pageView/PageView";
+import PageCover from "../pageView/cover/PageCover";
 
 interface StoryViewProps {
     book: Book;
@@ -26,27 +27,28 @@ const StoryView = ({ book }: StoryViewProps) => {
     return (
         <div className="story-view-container">
             <OriginTitle></OriginTitle>
-            {/*@ts-ignore */}
-            <HTMLFlipBook
-                width={400}
-                height={280}
-                size="stretch"
-                minWidth={315}
-                maxWidth={1000}
-                minHeight={400}
-                maxHeight={1533}
-                maxShadowOpacity={0.5}
-                showCover={true}
-                mobileScrollSupport={true}
-                className="story-view"
-            >
-                <PageView
-                    bookTitle={""}
-                    pageContent={book.dataObj.title}
-                    isOpeningPage
-                ></PageView>
-                {renderBookPages()}
-            </HTMLFlipBook>
+            <div>
+                {/*@ts-ignore */}
+                <HTMLFlipBook
+                    width={550}
+                    height={733}
+                    // size="stretch"
+                    minWidth={315}
+                    maxWidth={1000}
+                    minHeight={400}
+                    maxHeight={1533}
+                    autoSize={true}
+                    maxShadowOpacity={0.5}
+                    mobileScrollSupport={true}
+                    className="story-view"
+                    showCover={true}
+                    // usePortrait={true}
+                >
+                    <PageCover>{book.dataObj.title}</PageCover>
+                    {renderBookPages()}
+                    <PageCover>The END.</PageCover>
+                </HTMLFlipBook>
+            </div>
         </div>
     );
 };

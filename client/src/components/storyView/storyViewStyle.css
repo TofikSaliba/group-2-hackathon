@@ -1,2 +1,57 @@
-@use "../../utils/styleVars";
-/*# sourceMappingURL=storyViewStyle.css.map */
+.story-block {
+  padding: 1rem 0;
+  overflow: hidden;
+  width: 100%;
+}
+.story-block .container-md {
+  height: 100%;
+  position: relative;
+  max-width: 72rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+}
+.story-block .container-md .stf__parent {
+  background-image: url("../../assets/img/background/book-bg.jpg") !important;
+  min-width: 31.5rem;
+  min-height: 40rem;
+  width: 100%;
+  max-width: 200rem;
+  display: block;
+  position: relative;
+}
+.story-block .container-md .flip-book {
+  background-image: url("../../assets/img/background/book-bg.jpg") !important;
+  min-width: 315px;
+  min-height: 400px;
+  width: 100%;
+  max-width: 2000px;
+  display: block;
+}
+
+.story-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+  justify-content: center;
+}
+.story-view-container > * {
+  align-self: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.story-view-container .story-view {
+  border-radius: 4px;
+  height: 100%;
+}
+
+.flip-book {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  display: none;
+  background-size: cover;
+}/*# sourceMappingURL=storyViewStyle.css.map */

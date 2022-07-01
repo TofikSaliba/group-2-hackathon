@@ -1,3 +1,5 @@
+@import "../../utils/mixins/mixin.scss";
+
 .page {
     // padding: 20px;
     background-color: hsl(35, 55, 98);
@@ -5,6 +7,10 @@
     font-size: 2rem;
 
     overflow: hidden;
+    overflow-y: scroll;
+    page *::-webkit-scrollbar {
+        width: 0;
+    }
 
     .page-content {
         width: 100%;
@@ -91,7 +97,7 @@
 
         h2 {
             text-align: center;
-            padding-top: 50%;
+            padding-top: 30%;
             font-size: 210%;
         }
 
