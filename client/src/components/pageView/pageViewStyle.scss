@@ -4,6 +4,8 @@
     // padding: 20px;
     background-color: hsl(35, 55, 98);
     color: hsl(35, 35, 35);
+    border-radius: 4px;
+
     font-size: 2rem;
 
     overflow: hidden;
@@ -93,7 +95,11 @@
     &.page-cover {
         background-color: hsl(35, 45, 80);
         color: hsl(35, 35, 35);
+        // color: #f6f6f6;
         border: solid 1px hsl(35, 20, 50);
+        // background-image: url("../../assets/img/background/book-bg.jpg") !important;
+        // opacity: 0.5;
+        border-radius: 4px;
 
         h2 {
             text-align: center;

@@ -1,6 +1,7 @@
 .page {
   background-color: hsl(35deg, 55%, 98%);
   color: hsl(35deg, 35%, 35%);
+  border-radius: 4px;
   font-size: 2rem;
   overflow: hidden;
   overflow-y: scroll;
@@ -78,6 +79,7 @@
   background-color: hsl(35deg, 45%, 80%);
   color: hsl(35deg, 35%, 35%);
   border: solid 1px hsl(35deg, 20%, 50%);
+  border-radius: 4px;
 }
 .page.page-cover h2 {
   text-align: center;
