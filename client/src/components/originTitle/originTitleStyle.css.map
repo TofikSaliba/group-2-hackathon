@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,aAAa,CAAC;EACV,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,MAAM;EAClB,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,GAAG;EAChB,cAAc,EAAE,GAAG;CACtB",
-    "sources": [
-        "originTitleStyle.scss"
-    ],
-    "names": [],
-    "file": "originTitleStyle.css"
-}
+{"version":3,"sources":["originTitleStyle.scss","originTitleStyle.css"],"names":[],"mappings":"AAAA;EACI,eAAA;EACA,kBAAA;EACA,aAAA;EACA,gBAAA;EACA,mBAAA;ACCJ","file":"originTitleStyle.css"}
