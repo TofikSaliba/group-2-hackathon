@@ -43,10 +43,11 @@ const StoryView = ({ book }: StoryViewProps) => {
                     mobileScrollSupport={true}
                     className="story-view"
                     showCover={true}
-                    // usePortrait={true}
+                    usePortrait={true}
                 >
                     <PageCover>{book.dataObj.title}</PageCover>
                     {renderBookPages()}
+                    <PageCover> </PageCover>
                     <PageCover>The END.</PageCover>
                 </HTMLFlipBook>
             </div>
