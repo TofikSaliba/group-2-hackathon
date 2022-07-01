@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 const contactSchema = new mongoose.Schema({
-  firstName: {
+  fullName: {
     type: String,
     required: true,
     minLength: 2,
   },
-  lastName: {
+  subject: {
     type: String,
     required: true,
     minLength: 2,
@@ -15,7 +15,7 @@ const contactSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  comments: {
+  description: {
     type: String,
     required: true,
     minLength: 10,

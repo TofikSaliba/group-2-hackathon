@@ -10,94 +10,99 @@ import { Book } from "../../types/types";
 import "./homeStyle.css";
 
 const Home = () => {
-    const { t } = useLanguage();
-    const { selectedRegion } = usePreferences();
-    const { chosenLanguage } = useLanguage();
-    const [currBook, setCurrBook] = useState<Book>();
-    const { currentUser } = useUser();
-    const [isLoading, setIsLoading] = useState(true);
+  const { t } = useLanguage();
+  const { selectedRegion } = usePreferences();
+  const { chosenLanguage } = useLanguage();
+  const [currBook, setCurrBook] = useState<Book>();
+  const { currentUser } = useUser();
+  const [isLoading, setIsLoading] = useState(true);
+  const { setIsHome } = usePreferences();
 
-    const saveToProfile = () => {};
+  useEffect(() => {
+    setIsHome(true);
+  }, []);
 
-    const getRandomBook = async () => {
-        try {
-            const randomBookIdx = Math.floor(
-                Math.random() * selectedRegion.stories.length
-            );
-            const randomBookId = selectedRegion.stories[randomBookIdx];
+  const saveToProfile = () => {};
 
-            if( !randomBookId) return;
+  const getRandomBook = async () => {
+    try {
+      const randomBookIdx = Math.floor(
+        Math.random() * selectedRegion.stories.length
+      );
+      const randomBookId = selectedRegion.stories[randomBookIdx];
 
-            const { data } = await storyApi.get("/", {
-                params: {
-                    storyId: randomBookId,
-                    languageCode: chosenLanguage.value,
-                    language: chosenLanguage.label,
-                },
-            });
-            setIsLoading(false);
-            setCurrBook(data);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+      if (!randomBookId) return;
 
-    const changeStoryLang = async () => {
-        if( !currBook || !currBook.dataObj || !currBook.dataObj._id) return;
-        try{
-            const { data } = await storyApi.get("/", {
-                params: {
-                    storyId: currBook?.dataObj._id,
-                    languageCode: chosenLanguage.value,
-                    language: chosenLanguage.label,
-                },
-            });
-            setIsLoading(false);
-            setCurrBook(data);
-        }catch(err){
-            console.log(err);
-        }
-    };
+      const { data } = await storyApi.get("/", {
+        params: {
+          storyId: randomBookId,
+          languageCode: chosenLanguage.value,
+          language: chosenLanguage.label,
+        },
+      });
+      setIsLoading(false);
+      setCurrBook(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-    const handleGetRandomBook = () => {
-        setIsLoading(true);
-        getRandomBook();
-    };
+  const changeStoryLang = async () => {
+    if (!currBook || !currBook.dataObj || !currBook.dataObj._id) return;
+    try {
+      const { data } = await storyApi.get("/", {
+        params: {
+          storyId: currBook?.dataObj._id,
+          languageCode: chosenLanguage.value,
+          language: chosenLanguage.label,
+        },
+      });
+      setIsLoading(false);
+      setCurrBook(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-    useEffect(() => {
-        handleGetRandomBook();
-    }, [selectedRegion]);
+  const handleGetRandomBook = () => {
+    setIsLoading(true);
+    getRandomBook();
+  };
 
-    useEffect(() => {
-        setIsLoading(true);
-        changeStoryLang();
-    }, [chosenLanguage]);
+  useEffect(() => {
+    handleGetRandomBook();
+  }, [selectedRegion]);
 
-    return (
-        <>
-            <div className="home-page-container">
-                <div className="story-container">
-                    {isLoading ? (
-                        <Spinner></Spinner>
-                    ) : (
-                        <StoryView book={currBook!}></StoryView>
-                    )}
-                </div>
-                <div className="buttons-container">
-                    <Button
-                        btnText={t("btn.random")}
-                        onBtnClicked={handleGetRandomBook}
-                    ></Button>
-                    {currentUser && (
-                        <Button
-                            btnText={t("btn.save")}
-                            onBtnClicked={saveToProfile}
-                        ></Button>
-                    )}
-                </div>
-            </div>
-        </>
-    );
+  useEffect(() => {
+    setIsLoading(true);
+    changeStoryLang();
+  }, [chosenLanguage]);
+
+  return (
+    <>
+      <div className="home-page-container">
+        <div className="story-container">
+          {isLoading ? (
+            <Spinner></Spinner>
+          ) : (
+            <StoryView book={currBook!}></StoryView>
+          )}
+        </div>
+        <div className="buttons-container">
+          <Button
+            btnText={t("btn.random")}
+            onBtnClicked={handleGetRandomBook}
+          ></Button>
+          {currentUser && (
+            <Button
+              btnText={t("btn.save")}
+              onBtnClicked={saveToProfile}
+            ></Button>
+          )}
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Home;
