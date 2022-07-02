@@ -48,7 +48,7 @@ export function Contact() {
       <h1>CONTACT US! &nbsp;</h1>
       <form onSubmit={handleSubmit} action="#">
         <CustomInput
-          id="FullName"
+          id="fullName"
           onChange={handleChange}
           type="text"
           value={form.fullName}
@@ -56,7 +56,7 @@ export function Contact() {
           required={true}
         />
         <CustomInput
-          id="Subject"
+          id="subject"
           onChange={handleChange}
           type="text"
           value={form.subject}
